@@ -1,7 +1,7 @@
 # as_t
  ## What need to be done:
 EC shop manages facebook adverting and yahoo adverting and insight.json has ads’ insights data for December 2020.
-Create a program that shows the blow calculations on console by using the json data.
+Create a program that shows the blow calculations on console by using the json data in PHP.
 
  1. The sum of each field (impressions, sales, conversions, clicks, spend) for each provider, here they are Facebook and Yahoo
  2. Calculate CPC, CPA, CTR, CVR, ROAS (explained below) from the sum of Facebook and Yahoo and show them on console 
