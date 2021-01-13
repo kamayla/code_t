@@ -1,33 +1,32 @@
 # as_t
- ## 設問
- ECショップがfacebook広告とyahoo広告を掲載しており、それらの2020年12月分の広告実績データがinsight.jsonの中にあります。
+ ## What need to be done:
+EC shop manages facebook adverting and yahoo adverting and insight.json has ads’ insights data for December 2020.
+Create a program that shows the blow calculations on console by using the json data.
 
- jsonのデータを使い、以下の数値を算出しConsoleに表示するプログラムを作成しなさい。
+ 1. The sum of each field (impressions, sales, conversions, clicks, spend) for each provider, here they are Facebook and Yahoo
+ 2. Calculate CPC, CPA, CTR, CVR, ROAS (explained below) from the sum of Facebook and Yahoo and show them on console 
 
- 1. facebookとyahooのそれぞれのパラメーターの合計値。
- 2. facebookとyahooのそれぞれの合計から、cpc、cpa,ctr,コンバージョンレート,ROAS（Return On Advertising Spend）を算出してConsoleで表示しなさい。
-
- ## Jsonパース方法
+ ## How to parse json
  ```php
  $json = file_get_contents('insight.json');
  $json = mb_convert_encoding($json, 'UTF8');
  $data = json_decode($json, true);
  ```
- ## パラメーター説明
- |パラメーター名|意味|
+ ## Fields:
+ |field|meaning|
  |:--:|:--:|
- |impressions|広告の表示回数|
- |sales|広告からの売上|
- |conversions|広告からの成約数|
- |clicks|広告のクリック数|
- |spend|広告の費用|
- |provider|広告プロバイダー|
+ |impressions|the number of times that an ad is viewed|
+ |sales|sales from ads|
+ |conversions|an action that's counted when someone interacts with your ad (such as registration and  purchase)|
+ |clicks|how many times ads are clicked|
+ |spend|how much ads spent|
+ |provider|ad provider (such as Facebook, Yahoo, etc)|
 
- ## 統計数値説明
- |パラメーター名|意味|算出方法|
+ ## Terminologies:
+ |teminology|meaning|how to calculate|
  |:--:|:--:|:--:|
- |CPC|cost per clickの略称で、1クリックを獲得するためにかかった費用。|spend / clicks|
- |CPA|cost per actionの略称で、1conversionを獲得するために掛かった費用である。|spend / conversions|
- |CTR|Click Through Rateの略称で、Impressionに対してclickされた比率を指す。|clicks / impressions * 100 (%)|
- |CVR|Conversion Rateの略称で、click総数に対してconversionした比率を指す。|conversions / clicks * 100 (%)|
- |ROAS|Return On Advertising Spendの略称で、投資した広告費用の回収率。 |sales / spend * 100 (%)|
+ |CPC|cost per click|spend / clicks|
+ |CPA|cost per acquisition|spend / conversions|
+ |CTR|Click through rate is the number of clicks divided by the total number of impressions.|clicks / impressions * 100 (%)|
+ |CVR|conversion rate, in in-app advertising is the percentage of users who saw an app-install ad, clicked on it, and converted through some pre-specified action.|conversions / clicks * 100 (%)|
+ |ROAS|return on advertising spend is the amount of revenue your business earns for how much it spends on advertising |sales / spend * 100 (%)|
